@@ -1,6 +1,6 @@
 .main{
     flex: 1;
-    min-height: 100vh;
+    min-height: 95vh;
     padding-bottom: 15vh;
     position: relative;
 }
@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-between;
     font-size: 22px;
-    padding: 20px;
+    padding: 2px;
     color: #585858;
 }
 
@@ -26,10 +26,10 @@
 
 .main .greet{
     margin: 50px 0px;
-    font-size: 56px;
+    font-size: 35px;
     color: #c4c7c5;
     font-weight: 500;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .main .greet span{
@@ -42,7 +42,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
     gap:15px;
-    padding:20px;
+    /* padding:20px; */
 }
 
 .main .card{
@@ -71,4 +71,53 @@
 
 .main .card:hover{
     background-color: #dfe4ea;
+}
+
+.main-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0px 20px;
+    margin:auto;
+}
+
+
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:20px;
+    background-color: #f0f4f9;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.search-box img{
+    width: 24px;
+    cursor: pointer;
+}
+
+.search-box input{
+    flex: 1;
+    background: transparent;
+    border:none;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+
+}
+
+.search-box div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.main ,bottom-info{
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 200;
 }
