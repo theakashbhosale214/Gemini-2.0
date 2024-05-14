@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import React,{ createContext, useState } from "react";
 import runChat from "../config/gemini";
 
 export const Context = createContext();
@@ -17,13 +17,28 @@ const ContextProvider = (props) => {
             setResultData(prev => prev + nextWord);
         },75*index)
     }
+
+    const newChat = () => {
+        setLoading(false);
+        setShowResult(false);
+    }
     
     const onSent = async (prompt) =>{
         setResultData("");
         setLoading(true);
         setShowResult(true);
-        setRecentPrompt(input)
-        const response = await runChat(input);
+        let response;
+        if(prompt !== undefined){
+            response = await runChat(prompt);
+            setRecentPrompt(prompt)
+        }else{
+            setPrevPrompt(prev => [...prev,input])
+            setRecentPrompt(input);
+            response = await runChat(input);
+        }
+        // setRecentPrompt(input);
+        // setPrevPrompt(prev => [...prev,input])
+        // const response = await runChat(input);
         let responceArray = response.split("**");
         let newResponce;
         for(let i=0;i < responceArray.length;i++){
@@ -55,6 +70,7 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
+        newChat,
     }
 
     return(
